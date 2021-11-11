@@ -1,0 +1,45 @@
+body{
+	background-color: #bababa;
+}
+
+#form-edit{
+	width: 380px;
+	height: 410px;
+	margin: 10vh auto;
+	border: 2px solid #000094;
+	text-align: center;
+	background-color: rgba(115, 121, 160, 0.70);
+}
+
+#submit-edit{
+	display: block;
+	margin-left: 139px;
+	margin-top: 10px;
+}
+
+label{
+	width: 95px;
+	display: inline-block;
+	text-align: left;
+	margin-bottom: 10px;
+	
+}
+
+.form-heading{
+	padding-top: 15px;
+}
+
+#bio{
+	
+	width: 178px;
+	height: 92px;
+	vertical-align: top;
+	resize: none;
+}
+
+#lbl{
+	
+	display: inline-block;
+	vertical-align: top;
+	
+}

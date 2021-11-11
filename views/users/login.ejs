@@ -1,0 +1,28 @@
+<%- include('./partials/header') %>
+
+<p class='form-header'>
+	Login to view amazing campgrounds and post your comments!
+</p>
+
+<div id='form-login' class='container'>
+	<h1 class='form-heading'>Login to Yelpcamp</h1>
+		<form action='/login' method='POST'>
+		
+			<label>Username</label><input class='input group' type='text' name='username' placeholder='Enter username'>
+		
+	
+			<label>Password</label><input class='input group' type='password' name='password' placeholder='Enter a strong password'>
+	
+				<button class='btn btn-primary btn-md' id='submit-login'>Login</button>
+		
+	</form>
+</div>
+
+	
+		<h5 class='forgot'>Forgot password?
+		<a href='/reset_password' style='color:#0b006b;'>Click here</a>
+		</h5>
+		
+
+
+<%- include('./partials/footer') %>

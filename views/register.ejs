@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	 	<title>Yelpcamp</title>
+	 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+		<link rel="stylesheet" href="stylesheets/register.css">
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			  
+			<a class="navbar-brand" href="/campgrounds">Yelpcamp</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<% if(!currentUser){ %>
+						<li class="nav-item">
+							<li class="nav-item">
+								<a class="nav-link" href="/register">Register</a>
+							  </li>
+							  <li class="nav-item">
+								<a class="nav-link mr-5" href="/login"> Login</a>
+							  </li>
+					<% }else{ %>
+						<li class="nav-item">
+							<a class="nav-link disabled">Logged in as <%= currentUser.username %></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/logout">Logout</a>
+						  </li>
+					  <% } %>
+						
+				</ul>
+			</div>
+			
+		</nav>
+
+	<p class='form-header'>
+		Register now as a user to view campgrounds from around the world, and comment on campgrounds!
+	</p>
+
+	<div id='form-register' class='container'>
+		<h4>Register as a new user</h4>
+		<form action='/register' method='POST'>
+
+			<label>User Name</label><input class='input group' type='text' name="username" placeholder='Pick a user name'>
+		
+			<label>Password</label><input class='input group' type='password' name="password" placeholder='Choose a password'>
+		
+			<label>First Name</label><input class='input group' type='text' name="firstName" placeholder='First Name'>
+		
+			<label>Last Name</label><input class='input group' type='text' name="lastName" placeholder='Last Name'>
+		
+			<input class='input group' type='text' name="coverImg" placeholder='Cover photo link'>
+		
+			<label>Email</label><input class='input group' type="email" name='email' placeholder='jonhn_doe@yahoo.com'>
+		
+			<label>Admin Code</label><input class='input group' type='text' name="adminCode" placeholder='Enter code if admin'>
+		
+			<label id='lbl'>About You</label><textarea id='bio' max-length='250' name="bio" placeholder='Write a short paragraph about you'></textarea>
+		
+        	<input type="submit" class='btn btn-info btn-md' id='submit-register' value="Register">
+
+    	</form>
+	</div>
+
+<%- include('../partials/footer') %>

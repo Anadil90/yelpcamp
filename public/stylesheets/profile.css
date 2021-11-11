@@ -1,0 +1,110 @@
+
+#showUser{
+	background-color: #a88880;
+	padding:3px;
+	color: #000;
+}
+
+#profile-img{
+	width: 90%;
+}
+	
+
+#grid1{
+	margin-left: 15px;
+	width: 50%;
+}
+
+#grid2{
+	margin-top: 65px;
+	float:left;
+	width: 50%;
+	
+}
+
+#displayBio{
+	width: 520px;
+	text-align: justify;
+}
+
+.row{
+	background-color: #ab6554;
+	width: 90%;
+	padding-bottom: 35px;
+	margin: 25px auto;
+	color: #ded2ce;
+}
+
+
+#edit-profile{
+	margin-left: 10px;;
+}
+
+#user-info-header{
+	font-size: 4vh;
+	padding-right: 80px;
+	width: 520px;
+}
+
+@media (min-width: 768px){
+	#user-info-header{
+		font-size: 23px;
+	}
+	#edit-profile{
+		font-size: 16px;
+		padding: 6px 10px;
+		
+	}
+	
+
+	
+}
+@media (max-width: 1024px){
+	#user-info-header{
+		font-size: 16px;
+	}
+	#edit-profile{
+		font-size: 11px;
+		padding: 5.25px 6.65px;
+		
+	}
+	
+	#grid2{
+		margin-top: 15px;
+		padding-top: 18px;
+		font-size: 12px;
+		width: 91.5%;
+	}
+	
+	h3{
+		font-size: 18px; 
+	}
+
+}
+
+#profile-delete{
+	padding: 0;
+	position: absolute;
+	top: 0;
+	right: 25px;
+	text-align: right;
+	width: 80%;
+}
+
+h6{
+	display: inline;
+}
+
+#no_profile{
+	text-align: center;
+	margin: 25px;
+	outline: none;
+}
+
+.ui.icon.button{
+	display: inline;
+}
+
+.file-path.validate{
+	display: none;
+}

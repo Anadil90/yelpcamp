@@ -1,0 +1,70 @@
+<%- include('../../partials/header') %>
+
+<div class='container'>
+	
+		<a href="/campgrounds" class="back"><i class="arrow alternate circle left outline icon back"></i>back</a>
+
+	
+	<div class='row show-campground'>
+		<div class='col-md-9'>
+		    <div id='thumbs'>
+				<img class='img-thumbnail' src='<%= campground.image %>' style="height: 100%;">
+					<div class='campground-header'>
+						<h3 style='width:auto;margin-top:0;'><%= campground.name %></h3>
+						<p><%= campground.description %></p>
+				
+					</div>
+			</div>
+			
+			<div class='ui inverted segment'> 
+				<a class='ui inverted brown button' href='/campgrounds/<%= campground._id %>/comments/new'>Add Comment</a>
+<% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+				<a class='ui inverted red button' href='/campgrounds/<%= campground._id %>/edit'>Edit Campground</a>
+				<form action='/campgrounds/<%= campground._id %>?_method=DELETE' method='POST' id='delete'>
+					<button class='ui inverted green button'>Delete</button>
+				</form>	
+				<%	} %>
+				
+			</div>
+				
+			
+			<div  style='margin-bottom:0;'> 
+				<div id='comments-body'> 	 
+				<% campground.comments.forEach(function(displayComments){ %>
+					<div class='comment-each'>
+						<strong>
+							<em>
+								<h5 id='display-author-info'>
+									Submitted by <a href='/users/<%= displayComments.author.id %>'><%= displayComments.author.username %></a>, <%= displayComments.createdAt.toDateString() %>
+								</h5>
+							</em>	
+						
+						<span class='float-right'><%= moment(displayComments.createdAt).fromNow() %></span>
+					</strong>
+				
+				<span id='comments'>
+			<% if(currentUser && displayComments.author.id.equals(currentUser._id) || currentUser.isAdmin){ %>
+					<a class='ui icon button modifyComments edit' href='/campgrounds/<%= campground._id %>/comments/<%= displayComments._id %>/edit'><i class='pencil icon'></i></a>
+					<form class='modifyComments' action='/campgrounds/<%= campground._id %>/comments/<%= displayComments._id %>?_method=DELETE' method='POST' >
+						<button type='submit' class='ui icon button delete'><i class="trash icon"></i></button>
+					</form>
+			<% } %>
+						<% if (currentUser && displayComments.author.id.equals(currentUser._id) || currentUser.isAdmin){ %> 
+							<p id='displayComments'> <%= displayComments.text %></p>
+						<% } else { %>
+							<p id='displayComments' style='margin-left: 70px;'> <%= displayComments.text %></p>
+						<% } %>
+				</span>
+					
+			</div>
+			<%	}); %>
+				</div>
+			</div>	
+		</div>
+	</div>
+	</div>
+</div>
+
+<%- include('../../partials/footer') %>
+
+

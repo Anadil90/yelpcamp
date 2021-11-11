@@ -1,0 +1,47 @@
+<%- include('../../partials/header') %>
+<div class="container">
+		<div class="container mt-5">
+			<div class='jumbotron'>
+			
+				<h1>welcome to yelpcamp!</h1>
+				<p>View amazing campgrounds that are hand picked by the community</p>
+				<a href='/campgrounds/new' class='btn btn-info btn-lg add-campground'>add new campground</a>
+				
+				<form action='/campgrounds' method='GET' class='form-inline' id='search'>
+					<div class='form-group search-box' style="display: inline;">
+						<input type='text' name='search' class='form-control search' placeholder='Search Campgrounds'>
+						<input type='submit' class='btn btn-success btn-md' value='Search'>
+					</div>
+				</form>
+			</div>
+		</div>
+
+			<div class="container" style="padding: 0;">
+				<div class="row">
+					<% campgrounds.forEach(function(camps){ %>	
+					<div class="col-md-4 col-sm-6">
+						<div class="container">
+							<div class="card" style="width: auto; padding: 5px;">
+  							<img src="<%= camps.image %>" class="card-img-top" alt="...">
+  							<div class="card-body">
+								<div style="border: 2px solid green; margin-bottom: 10px; padding: 5px;" id="info">
+									<h5 class="card-title"><%= camps.name %></h5>
+    								<p class="card-text"><%= camps.description.substring(0, 35) %>...</p>
+								</div>
+    							
+    							<a href="/campgrounds/<%= camps._id %>" class="btn btn-danger">More info!</a>
+  							</div>
+						</div>
+						</div>
+					</div>
+		
+      				<% }) %>
+				</div>
+			</div>
+</div>
+	
+				
+
+
+
+<%- include('../../partials/footer') %>
